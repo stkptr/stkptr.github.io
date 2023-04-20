@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Cratefuck Interpreter</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div id="page">
+      <h1>Cratefuck Interpreter</h1>
+      
+      <noscript><h2>This interpreter requires Javascript, please enable it.</h2></noscript>
+
+      <textarea class="code" id="code">*[**&gt;]</textarea>
+
+      <div class="controls">
+        <div>
+          <button onclick="playpause()" id="playbutton">⏵</button>
+          <button onclick="step()">⮫</button>
+          <button onclick="reset()">↻</button>
+        </div>
+        <div id="interval-box">
+          <p id="interval-text">Interval 100ms (10/s)</p>
+          <input
+            onchange="changeinterval()"
+            oninput="updateinterval()"
+            type="range"
+            id="interval"
+            max="200"/>
+        </div>
+      </div>
+
+      <div class="bakedcode"></div>
+
+      <div class="tape">
+        <div class="tapeheader">
+          <p>Tape:</p>
+
+          <div class="held">
+            <span>Held value:</span>
+            <div id="held" class="cell">0</div>
+          </div>
+        </div>
+
+        <div class="box"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

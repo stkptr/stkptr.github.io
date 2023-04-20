@@ -1,0 +1,97 @@
+#page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2, p, .cell, .held span {
+  font-family: sans-serif;
+  color: #222;
+}
+
+button {
+  font-size: 16pt;
+  width: 2em;
+  height: 2em;
+}
+
+.tape {
+  width: 80%;
+  margin: 6px;
+}
+
+.tapeheader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  display: inline-block;
+  background-color: #ddd;
+  border-radius: 3px;
+  min-width: 2.5em;
+  min-height: 2.5em;
+  text-align: center;
+  line-height: 2.5em;
+  margin: 2px;
+}
+
+.active {
+  background-color: lightgreen;
+}
+
+.code, .bakedcode {
+  font-family: monospace;
+  font-size: 12pt;
+  color: #222;
+}
+
+.code {
+  width: 80%;
+  height: 10em;
+  resize: none;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  border: 1px solid #aaa;
+}
+
+.controls {
+  width: 80%;
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#interval-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+}
+
+#interval-text {
+  margin: 2px;
+}
+
+.bakedcode {
+  width: 80%;
+  height: 10em;
+  display: inline-block;
+  border: none;
+  padding: 4px;
+  overflow: scroll;
+  overflow-wrap: break-word;
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+span.selected {
+  background-color: lightgreen;
+}

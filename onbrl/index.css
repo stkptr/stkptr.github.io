@@ -1,0 +1,35 @@
+#label {
+    font-size: 128px;
+    text-align: center;
+    margin: 10px;
+}
+
+#box {
+    font-size: 48px;
+    width: 95%;
+    height: 60%;
+    margin: 10px auto;
+    display: block;
+    resize: none;
+}
+
+label {
+    font-family: sans-serif;
+    width: 95%;
+    text-align: center;
+    display: block;
+}
+
+p, span {
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}

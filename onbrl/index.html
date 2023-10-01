@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Braille typing demonstration</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="braille">
+            <div>
+                <span id="sixdot">
+                Six dot mode: use the QWD, KOP keys to type Braille.
+                </span>
+                <span id="eightdot" style="display: none;">
+                Eight dot mode: use the AWEF, JIO; keys to type Braille.
+                </span>
+                <span>
+                Press T to swap between six and eight dot Braille, M to clear text.
+                </span>
+            </div>
+            <button class="textmode">Switch to print mode</button>
+        </div>
+        <div id="print" style="display: none;">
+            <div><span>Print mode.</span></div>
+            <button class="textmode">Switch to Braille mode</button>
+        </div>
+        <p id="label"></p>
+        <label for="box">Braille and print entry</label>
+        <textarea id="box" name="box" autofocus placeholder="Braille entry box"></textarea>
+        <script src="index.js"> </script>
+        <noscript>This page requires Javascript to work.</noscript>
+    </body>
+</html>

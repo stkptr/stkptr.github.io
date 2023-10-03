@@ -35,6 +35,7 @@ var message_braille = document.getElementById("braille")
 var message_print = document.getElementById("print")
 
 const BRF = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
+const UNBRF = " ⠮⠐⠼⠫⠩⠯⠄⠷⠾⠡⠬⠠⠤⠨⠌⠴⠂⠆⠒⠲⠢⠖⠶⠦⠔⠱⠰⠣⠿⠜⠹⠈⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚⠅⠇⠍⠝⠕⠏⠟⠗⠎⠞⠥⠧⠺⠭⠽⠵⠪⠳⠻⠘⠸"
 
 // Use an actual space for wrapping
 const SPACE = " "
@@ -180,6 +181,7 @@ function set_clipboard(text) {
     .catch((err) => console.log("Cannot set clipboard."))
 }
 
+
 function within(v, start, stop) {
     return start <= v && v <= stop
 }
@@ -193,6 +195,15 @@ function brf_translate(unicode) {
         .join("")
 }
 
+function unbrf_translate(brf) {
+    return Array.from(brf)
+        .map((c) =>
+            (within(c.charCodeAt(0), 0x20, 0x5F))
+                ? UNBRF[c.charCodeAt(c) - 0x20]
+                : c)
+        .join("")
+}
+
 document.getElementById("brfcopy").onclick = (
     (e) => set_clipboard(brf_translate(box.value))
 )
@@ -201,6 +212,13 @@ document.getElementById("copy").onclick = (
 )
 document.getElementById("spacecopy").onclick = (
     (e) => set_clipboard(box.value.replace(" ", "⠀"))
+)
+
+document.getElementById("unbrf").onclick = (
+    (e) => box.value = unbrf_translate(box.value)
+)
+document.getElementById("brf").onclick = (
+    (e) => box.value = brf_translate(box.value)
 )
 
 update()

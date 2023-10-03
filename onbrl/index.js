@@ -34,6 +34,8 @@ var message_eight = document.getElementById("eightdot")
 var message_braille = document.getElementById("braille")
 var message_print = document.getElementById("print")
 
+const BRF = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
+
 // Use an actual space for wrapping
 const SPACE = " "
 const ENTER = "\n"
@@ -111,7 +113,6 @@ function update() {
 
 function send(text) {
     box.setRangeText(text)
-    console.log(box.selectionStart)
     box.SelectionEnd += 2
     box.selectionStart += 1
     clear()
@@ -173,6 +174,34 @@ document.onclick = focus
 
 box.onkeypress = (e) => !braille_mode
 box.onkeyup = (e) => !braille_mode
+
+function set_clipboard(text) {
+    navigator.clipboard.writeText(text)
+    .catch((err) => console.log("Cannot set clipboard."))
+}
+
+function within(v, start, stop) {
+    return start <= v && v <= stop
+}
+
+function brf_translate(unicode) {
+    return Array.from(unicode)
+        .map((c) =>
+            (within(c.charCodeAt(0), 0x2800, 0x283F))
+                ? BRF[c.charCodeAt(c) - 0x2800]
+                : c)
+        .join("")
+}
+
+document.getElementById("brfcopy").onclick = (
+    (e) => set_clipboard(brf_translate(box.value))
+)
+document.getElementById("copy").onclick = (
+    (e) => set_clipboard(box.value)
+)
+document.getElementById("spacecopy").onclick = (
+    (e) => set_clipboard(box.value.replace(" ", "⠀"))
+)
 
 update()
 

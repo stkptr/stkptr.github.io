@@ -13,6 +13,10 @@
     resize: none;
 }
 
+.copybar {
+    margin-top: 8px;
+}
+
 label {
     font-family: sans-serif;
     width: 95%;

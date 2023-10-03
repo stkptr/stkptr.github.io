@@ -211,7 +211,7 @@ document.getElementById("copy").onclick = (
     (e) => set_clipboard(box.value)
 )
 document.getElementById("spacecopy").onclick = (
-    (e) => set_clipboard(box.value.replace(" ", "⠀"))
+    (e) => set_clipboard(box.value.replaceAll(" ", "⠀"))
 )
 
 document.getElementById("unbrf").onclick = (
